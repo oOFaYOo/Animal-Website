@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 0;
+    background-image: url("back for main.png");
+    background-size: cover;
+}
+.main {
+    width: 21%;
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.51);
+    border: 10px rgba(135, 135, 135, 0) solid;
+    border-radius: 5%;
+}
+#dog {
+    margin: 0 5% 0 5%;
+}
+#cat {
+    margin: 0;
+}
+#parrot{
+    margin: 0 5% 0 5%;
+}
+#back {
+    top: 20%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: 33%;
+    padding: 0;
+    min-width: 575px;
+    min-height: 130px;
+}
+p {
+    color: #707070;
+    text-align: center;
+    position: relative;
+    font-size: 33px;
+    font-family: "Marker Felt", "Impact", fantasy;
+    top: 30%;
+}
+
+.main:hover{
+    cursor: pointer;
+    transform: scale(1.05, 1.05);
+    background-color: rgba(255, 255, 255, 0.91);
+    border: 10px rgba(135, 135, 135, 0.9) solid;
+    border-radius: 5%;
+}
+
+.main:active{
+    transform: translateY(1px);
+}
+
+a {
+    text-decoration: none;
+}
