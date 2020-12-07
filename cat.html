@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <title>Animal Web. Cats</title>
     <link rel="shortcut icon" type="image/png" href="animal cat pet.png">
+    <link rel="stylesheet" href="cat style.css">
 </head>
 <body>
-Котики
-<a href="animal website main.html">На главную</a>
+<div id="back_white">
+<div id="top_buttons">
+    <div id="to_mainpage"><a href="animal website main.html"><p>НА ГЛАВНУЮ</p></a></div>
+    <div id="add_cat"><p>ДОБАВИТЬ ЖИВОТНОЕ</p></div>
+</div>
+<details class="animal_description">
+    <summary id="name_of_cat"><p>ИМЯ</p></summary>
+    <div id="description_of_cat">
+    <p>Пол:</p>
+    <p>Порода:</p>
+    <p>Возраст:</p>
+       <details class="owner">
+           <summary id="owner"><p>ВЛАДЕЛЕЦ</p></summary>
+            <div>
+                <p>ФИО:</p>
+                <p>Телефон:</p>
+            </div>
+        </details>
+    </div>
+</details>
+</div>
+<div class="add_new_animal" hidden>
+    
+</div>
 </body>
 </html>
