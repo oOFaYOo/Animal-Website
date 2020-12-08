@@ -10,12 +10,13 @@ body{
 
 #back_white{
     background: linear-gradient(to right,   rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 15%,
-                                            rgba(255, 255, 255, 0.8) 15%, rgba(255, 255, 255, 0.8) 85%,
+                                            rgba(255, 255, 255, 0.9) 15%, rgba(255, 255, 255, 0.9) 85%,
                                             rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0) 100%);
     height: 100%;
     position: absolute;
     width: 100%;
     padding: 0;
+    z-index: 1;
 }
 
 summary {
@@ -97,7 +98,7 @@ p{
 #to_mainpage{
     position: relative;
     width: 49.5%;
-    background-color: rgba(131, 198, 214, 0.61);
+    background-color: rgba(131, 198, 214, 0.75);
     height: 30px;
     border-radius: 10px;
     display: inline-block;
@@ -118,7 +119,7 @@ a {
 #add_cat{
     display: inline-block;
     width: 49.5%;
-    background-color: rgba(131, 198, 214, 0.6);
+    background-color: rgba(131, 198, 214, 0.75);
     height: 30px;
     border-radius: 10px;
     margin: 0;
@@ -147,4 +148,94 @@ a {
 }
 #top_buttons div:active{
     transform: translateY(1px);
+}
+
+#back_white_for_reg{
+    width: 30%;
+    height: 65%;
+    position: relative;
+    background-color: #efefef;
+    margin: 0 auto 0 auto;
+    top: 15%;
+    border-radius: 10px;
+    border: #6e6e6e 5px solid;
+}
+
+.add_new_animal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(146, 146, 146, 0.81);
+}
+#close_reg_form{
+    color: #f8c438;
+    float: right;
+    font-size: 30px;
+    margin: 10px 20px 10px 10px;
+    padding: 0;
+}
+#close_reg_form:hover{
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+}
+#close_reg_form:active{
+    transform: translateY(2px);
+}
+form{
+    position: relative;
+    width: 245px;
+    height: 80%;
+    margin: 10% auto 0 auto;
+    font-family: sans-serif;
+}
+
+.name_of_animal input{
+    width: 230px;
+}
+.kind {
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 5px;
+}
+.age_of_animal{
+    display: inline-block;
+    text-align: center;
+    font-size: 15px;
+}
+.full_name input{
+    width: 230px;
+}
+
+.phone_number input{
+   width: 230px;
+}
+.full_name{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 17px;
+    font-family: "Impact", fantasy;
+}
+.buttons_of_form{
+    margin-left: 40px;
+    margin-top: 35px;
+}
+.name_of_animal{
+    text-align: center;
+    font-size: 17px;
+    font-family: "Impact", fantasy;
+    margin-bottom: 20px;
+}
+.phone_number{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+}
+.genderF{
+    margin-left: 20px;
+}
+.genderM{
+    margin-left: 20px;
+    margin-bottom: 5px;
 }

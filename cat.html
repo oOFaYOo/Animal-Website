@@ -28,8 +28,26 @@
     </div>
 </details>
 </div>
-<div class="add_new_animal" hidden>
-    
+<div class="add_new_animal" >
+    <div id="back_white_for_reg">
+        <div id="close_reg_form">✖</div>
+        <form>
+            <div class="name_of_animal">Имя петомца<br><input type="text" name="name_of_animal" required pattern="[А-Я]{1}[а-я]{1,}"></div>
+            <div class="genderM"><label for="gen_m"><input type="radio" id="gen_m" name="gender" value="male" required>М</label></div>
+            <div class="genderF"><label for="gen_f"><input type="radio" id="gen_f" name="gender" value="female" required>Ж</label></div><br>
+            <div class="kind">Порода<br><input type="text" name="kind" required pattern="[А-Я]{1}[А-Яа-я]{1,}[ -]{1,}[А-Я]{1}[А-Яа-я]{1,}">
+            </div>
+            <div class="age_of_animal">Возраст<br><input type="number" name="age_of_animal" min="1" max="30" required></div>
+            <div class="full_name">Владелец<br><input type="text" placeholder="Иванов Иван Иванович" name="full_name" required
+                        pattern="[А-Я]{1}[а-я]{1,}[ ]{1}[А-Я]{1}[а-я]{1,}[ ]{1}[А-Я]{1}[а-я]{1,}"></div>
+            <div class="phone_number">Номер телефона<br><input type="tel" name="phone_number" placeholder="+7(900)XXXXXXX" pattern="[+]{1}[7]{1}[9]{1}[0-9]{9}"
+                        required></div>
+            <div class="buttons_of_form">
+                <input type="submit" id="button_submit">
+                <input type="reset" id="button_reset">
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>
