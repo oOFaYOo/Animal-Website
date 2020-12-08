@@ -1,4 +1,4 @@
-let addCat = document.getElementById("add_cat");
+let addCat = document.querySelector(".add_cat");
 let addNewAnimal = document.querySelector(".add_new_animal");
 addCat.onclick = () => {
     addNewAnimal.hidden = false
