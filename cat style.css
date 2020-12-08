@@ -53,7 +53,7 @@ summary::-webkit-details-marker {
 
 .animal_description{
     width: 35%;
-    background-color: rgba(234, 215, 109, 0.3);
+    background-color: rgba(234, 215, 109, 0.4);
     border-radius: 10px;
     min-width: 377px;
     margin: 0 auto 0 auto;
@@ -62,16 +62,16 @@ summary::-webkit-details-marker {
 #name_of_cat{
     height: 30px;
     border-radius: 10px;
-    background-color: #ead06b;
+    background-color: #ddc060;
     margin-bottom: 5px;
 }
 
 #owner{
     border-radius: 0;
-    background-color: #83c6d6;
+    background-color: #63a7c4;
 }
 .owner{
-    background-color: rgb(214, 238, 255);
+    background-color: rgb(181, 215, 221);
     padding-bottom: 1px;
 }
 
@@ -98,7 +98,7 @@ p{
 #to_mainpage{
     position: relative;
     width: 49.5%;
-    background-color: rgba(131, 198, 214, 0.75);
+    background-color: rgba(63, 159, 196, 0.4);
     height: 30px;
     border-radius: 10px;
     display: inline-block;
@@ -119,7 +119,7 @@ a {
 #add_cat{
     display: inline-block;
     width: 49.5%;
-    background-color: rgba(131, 198, 214, 0.75);
+    background-color: rgba(63, 159, 196, 0.4);
     height: 30px;
     border-radius: 10px;
     margin: 0;
@@ -137,14 +137,14 @@ a {
 }
 #to_mainpage:hover{
     cursor: pointer;
-    background-color: #94dbeb;
+    background-color: #63a7c4;
 }
 #add_cat:hover{
     cursor: pointer;
-    background-color: #94dbeb;
+    background-color: #63a7c4;
 }
 #name_of_cat:hover{
-    background-color: #f8da61;
+    background-color: #eccf57;
 }
 #top_buttons div:active{
     transform: translateY(1px);
@@ -159,6 +159,10 @@ a {
     top: 15%;
     border-radius: 10px;
     border: #6e6e6e 5px solid;
+    min-height: 470px;
+    max-width: 527px;
+    max-height: 520px;
+    min-width: 305px;
 }
 
 .add_new_animal{
