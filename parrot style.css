@@ -238,10 +238,14 @@ form{
 .feathers {
     font-size: 15px;
     margin-bottom: 10px;
-    margin-left: 5px;
+    /*margin-left: 5px;*/
+    text-align: center;
 }
-.feathers input{
-    width: 230px;
+.feathers select{
+    width: 235px;
+    font-size: 15px;
+    font-family: sans-serif;
+    height: 23px;
 }
 
 .buttons_of_form{
@@ -272,3 +276,4 @@ input[type="submit"], input[type="reset"]:focus{
     outline: none;
     border: none;
 }
+
