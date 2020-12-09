@@ -34,7 +34,7 @@ summary::-webkit-details-marker {
 
 .animal_description{
     width: 35%;
-    background-color: rgba(104, 177, 86, 0.4);
+    background-color: rgba(112, 199, 182, 0.4);
     border-radius: 10px;
     min-width: 377px;
     margin: 0 auto 0 auto;
@@ -43,12 +43,12 @@ summary::-webkit-details-marker {
 .name_of_parrot{
     height: 30px;
     border-radius: 10px;
-    background-color: #66b137;
+    background-color: #15a298;
     margin-bottom: 5px;
 }
 
 .name_of_parrot:hover{
-    background-color: #82d03a;
+    background-color: #20c7b7;
 }
 
 .name_of_parrot p{
@@ -63,10 +63,10 @@ summary::-webkit-details-marker {
 
 .owner{
     border-radius: 0;
-    background-color: rgb(226, 199, 0);
+    background-color: rgb(213, 102, 115);
 }
 .owner_description{
-    background-color: rgb(254, 245, 183);
+    background-color: rgb(255, 214, 211);
     padding-bottom: 1px;
 }
 
@@ -84,7 +84,7 @@ p{
 .to_mainpage{
     position: relative;
     width: 49.5%;
-    background-color: rgba(221, 194, 0, 0.8);
+    background-color: rgba(206, 82, 92, 0.8);
     height: 30px;
     border-radius: 10px;
     display: inline-block;
@@ -94,7 +94,7 @@ p{
 
 .to_mainpage:hover{
     cursor: pointer;
-    background-color: #f8d93f;
+    background-color: #fa8ca4;
 }
 
 a {
@@ -121,7 +121,7 @@ a {
 .add_parrot{
     display: inline-block;
     width: 49.5%;
-    background-color: rgba(221, 194, 0, 0.8);
+    background-color: rgba(206, 82, 92, 0.8);
     height: 30px;
     border-radius: 10px;
     margin: 0;
@@ -131,7 +131,7 @@ a {
 
 .add_parrot:hover{
     cursor: pointer;
-    background-color: #f8d93f;
+    background-color: #fa8ca4;
 }
 
 #top_buttons div:active{
@@ -161,7 +161,7 @@ a {
     background-color: rgba(18, 18, 18, 0.8);
 }
 #close_reg_form{
-    color: #66b137;
+    color: #15a298;
     float: right;
     font-size: 30px;
     margin: 10px 20px 10px 10px;
@@ -233,7 +233,7 @@ form{
 }
 
 .buttons_of_form input{
-    background-color: rgba(221, 194, 0);
+    background-color: rgb(213, 102, 115);
     color: white;
     font-family: "Impact", fantasy;
     width: 120px;
@@ -245,7 +245,7 @@ form{
 
 .buttons_of_form input:hover{
     cursor: pointer;
-    background-color: #f8d93f;
+    background-color: #fa8ca4;
 }
 
 .buttons_of_form input:active{

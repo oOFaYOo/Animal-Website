@@ -63,10 +63,10 @@ summary::-webkit-details-marker {
 
 .owner{
     border-radius: 0;
-    background-color: #af688c;
+    background-color: #af6991;
 }
 .owner_description{
-    background-color: rgb(232, 197, 207);
+    background-color: rgb(235, 201, 224);
     padding-bottom: 1px;
 }
 
@@ -84,7 +84,7 @@ p{
 .to_mainpage{
     position: relative;
     width: 49.5%;
-    background-color: rgba(165, 87, 121, 0.8);
+    background-color: rgba(164, 86, 139, 0.8);
     height: 30px;
     border-radius: 10px;
     display: inline-block;
@@ -94,7 +94,7 @@ p{
 
 .to_mainpage:hover{
     cursor: pointer;
-    background-color: #db8cb5;
+    background-color: #db84be;
 }
 
 a {
@@ -121,7 +121,7 @@ a {
 .add_dog{
     display: inline-block;
     width: 49.5%;
-    background-color: rgba(165, 87, 121, 0.8);
+    background-color: rgba(164, 86, 139, 0.8);
     height: 30px;
     border-radius: 10px;
     margin: 0;
@@ -131,7 +131,7 @@ a {
 
 .add_dog:hover{
     cursor: pointer;
-    background-color: #db8cb5;
+    background-color: #db84be;
 }
 
 #top_buttons div:active{
@@ -233,7 +233,7 @@ form{
 }
 
 .buttons_of_form input{
-    background-color: rgb(165, 87, 121);
+    background-color: rgb(189, 123, 168);
     color: white;
     font-family: "Impact", fantasy;
     width: 120px;
@@ -245,7 +245,7 @@ form{
 
 .buttons_of_form input:hover{
     cursor: pointer;
-    background-color: #db8cb5;
+    background-color: #e498cb;
 }
 
 .buttons_of_form input:active{
