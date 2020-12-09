@@ -203,6 +203,10 @@ form{
     font-size: 15px;
 }
 
+.age_of_animal input{
+    width: 40px;
+}
+
 .full_name{
     margin-top: 40px;
     text-align: center;
