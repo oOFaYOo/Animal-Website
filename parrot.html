@@ -5,9 +5,48 @@
     <title>Animal Web. Parrots</title>
     <link rel="shortcut icon" type="image/png" href="animal parrot pet.png">
     <link rel="stylesheet" href="parrot style.css">
+    <script defer src="parrot.js"></script>
 </head>
 <body>
-<div>Попугайчики</div>
-<a href="animal website main.html">На главную</a>
+<div class="back_white">
+    <div class="top_buttons">
+        <div class="to_mainpage"><a href="animal website main.html"><p>НА ГЛАВНУЮ</p></a></div>
+        <div class="add_parrot"><p>ДОБАВИТЬ ЖИВОТНОЕ</p></div>
+    </div>
+    <div class="animal_parrot">
+        <details class="animal_description">
+            <summary class="name_of_parrot"><p>ИМЯ</p></summary>
+            <div class="description_of_parrot">
+                <p>Пол:</p>
+                <p>Порода:</p>
+                <p>Возраст:</p>
+                <details class="owner_description">
+                    <summary class="owner"><p>ВЛАДЕЛЕЦ</p></summary>
+                    <p>ФИО:</p>
+                    <p>Телефон:</p>
+                </details>
+            </div>
+        </details>
+    </div>
+
+</div>
+<div class="add_new_parrot" hidden>
+    <div id="back_white_for_reg">
+        <div id="close_reg_form">✖</div>
+        <form>
+            <div class="name_of_animal"><label for="name_of_animal">Имя петомца<br><input id="name_of_animal" type="text" name="name_of_animal" required pattern="[А-Я]{1}[а-я]{1,}"></label></div>
+            <div class="genderM"><label for="gen_m"><input type="radio" id="gen_m" name="gender" value="male" required>М</label></div>
+            <div class="genderF"><label for="gen_f"><input type="radio" id="gen_f" name="gender" value="female" required>Ж</label></div><br>
+            <div class="kind"><label for="kind_of_animal">Порода<br><input id="kind_of_animal" type="text" name="kind" required pattern="[А-Я]{1}[А-Яа-я]{1,}[ -]{1,}[А-Я]{1}[А-Яа-я]{1,}"></label></div>
+            <div class="age_of_animal"><label for="age_of_animal">Возраст<br><input id="age_of_animal" type="number" name="age_of_animal" min="1" max="30" required></label></div>
+            <div class="full_name"><label for="name_of_owner">Владелец<br><input id="name_of_owner" type="text" placeholder="Иванов Иван Иванович" name="full_name" required pattern="[А-Я]{1}[а-я]{1,}[ ]{1}[А-Я]{1}[а-я]{1,}[ ]{1}[А-Я]{1}[а-я]{1,}"></label></div>
+            <div class="phone_number"><label for="phone_num">Номер телефона<br><input id="phone_num" type="tel" name="phone_number" placeholder="+7(900)XXXXXXX" pattern="[+]{1}[7]{1}[9]{1}[0-9]{9}" required></label></div>
+            <div class="buttons_of_form">
+                <input type="submit" id="button_submit">
+                <input type="reset" id="button_reset">
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

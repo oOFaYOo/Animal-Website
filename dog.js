@@ -1,6 +1,6 @@
-let addCat = document.querySelector(".add_cat");
-let addNewAnimal = document.querySelector(".add_new_cat");
-addCat.onclick = () => {
+let addDog = document.querySelector(".add_dog");
+let addNewAnimal = document.querySelector(".add_new_dog");
+addDog.onclick = () => {
     addNewAnimal.hidden = false
 };
 

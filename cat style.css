@@ -32,27 +32,6 @@ summary::-webkit-details-marker {
     display: none
 }
 
-/*summary::after {*/
-/*    background: red;*/
-/*    border-radius: 5px;*/
-/*    content: "▼";*/
-/*    color: #ffe52c;*/
-/*    float: left;*/
-/*    font-size: 1.5em;*/
-/*    font-weight: bold;*/
-/*    margin: -5px 10px 0 0;*/
-/*    padding: 0;*/
-/*    text-align: center;*/
-/*    width: 20px;*/
-/*}*/
-
-/*.owner[open] #owner::after {*/
-/*    content: "▲";*/
-/*}*/
-/*.animal_description[open] #name_of_cat::after {*/
-/*    content: "▲";*/
-/*}*/
-
 .animal_description{
     width: 35%;
     background-color: rgba(234, 215, 109, 0.4);
@@ -64,12 +43,12 @@ summary::-webkit-details-marker {
 .name_of_cat{
     height: 30px;
     border-radius: 10px;
-    background-color: #ddc060;
+    background-color: #d9bd6e;
     margin-bottom: 5px;
 }
 
 .name_of_cat:hover{
-    background-color: #eccf57;
+    background-color: #efd180;
 }
 
 .name_of_cat p{
@@ -174,7 +153,7 @@ a {
     min-width: 305px;
 }
 
-.add_new_animal{
+.add_new_cat{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -182,7 +161,7 @@ a {
     background-color: rgba(18, 18, 18, 0.8);
 }
 #close_reg_form{
-    color: #f8c438;
+    color: #d9bd6e;
     float: right;
     font-size: 30px;
     margin: 10px 20px 10px 10px;
@@ -254,7 +233,7 @@ form{
 }
 
 .buttons_of_form input{
-    background-color: rgb(123, 190, 206);
+    background-color: rgb(78, 171, 189);
     color: white;
     font-family: "Impact", fantasy;
     width: 120px;
@@ -266,7 +245,7 @@ form{
 
 .buttons_of_form input:hover{
     cursor: pointer;
-    background-color: #89d1e1;
+    background-color: #81c8d8;
 }
 
 .buttons_of_form input:active{
