@@ -191,7 +191,7 @@ form{
 .name_of_animal input{
     width: 230px;
 }
-.kind {
+.breed {
     display: inline-block;
     font-size: 15px;
     text-align: center;

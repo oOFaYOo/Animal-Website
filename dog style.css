@@ -191,7 +191,7 @@ form{
 .name_of_animal input{
     width: 230px;
 }
-.kind {
+.breed {
     display: inline-block;
     font-size: 15px;
     text-align: center;
@@ -225,9 +225,48 @@ form{
 }
 
 .genderF, .genderM{
-    margin-left: 20px;
     margin-bottom: 5px;
+    width: 45px;
+    margin-left: 10px;
+
 }
+.genderF p , .genderM p{
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.sizeB p, .sizeS p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+.block_for_group1 {
+    display: inline-block;
+    width: 46px;
+    margin: 0;
+    padding: 0;
+}
+
+.block_for_group{
+    display: inline-block;
+    width: 145px;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.sizeB, .sizeS{
+    width: 140px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+}
+
 .buttons_of_form{
     margin-top: 45px;
 }
