@@ -54,8 +54,16 @@
             </div>
             <div class="breed"><label for="breed_of_animal">Порода<br><input placeholder="Овчарка" id="breed_of_animal" type="text" name="breed" required pattern="[A-ZА-Я]{1}[a-zа-я -]{1,}"></label></div>
             <div class="age_of_animal"><label for="age_of_animal">Возраст<br><input id="age_of_animal" type="number" name="age_of_animal" min="1" max="30" required></label></div>
-            <div class="full_name"><label for="name_of_owner">Владелец<br><input id="name_of_owner" type="text" placeholder="Иванов Иван Иванович" name="full_name" required pattern="[A-ZА-Я]{1}[a-zа-я]{1,}[ ]{1}[A-ZА-Я]{1}[a-zа-я]{1,}[ ]{1}[A-ZА-Я]{1}[a-zа-я]{1,}"></label></div>
-            <div class="phone_number"><label for="phone_num">Номер телефона<br><input id="phone_num" type="tel" name="phone_number" placeholder="+7(900)XXXXXXX" pattern="[+]{1}[7]{1}[9]{1}[0-9]{9}" required></label></div>
+            <div id="description_of_owner">
+                <div class="phone_OldOwner" hidden><label for="phone_OldOwner">Зарегестрированный ранее номер телефона<input required id="phone_OldOwner" type="tel" placeholder="+7(900)XXXXXXX" pattern="[+]{1}[7]{1}[9]{1}[0-9]{9}"></label></div>
+                <div id="description_of_NewOwner">
+                    <div class="full_name"><label for="name_of_owner">Владелец<br><input id="name_of_owner" type="text" placeholder="Иванов Иван Иванович" name="full_name" required pattern="[A-ZА-Я]{1}[a-zа-я]{1,}[ ]{1}[A-ZА-Я]{1}[a-zа-я]{1,}[ ]{1}[A-ZА-Я]{1}[a-zа-я]{1,}"></label></div>
+                    <div class="phone_number"><label for="phone_num">Номер телефона<br><input id="phone_num" type="tel" name="phone_number" placeholder="+7(900)XXXXXXX" pattern="[+]{1}[7]{1}[9]{1}[0-9]{9}" required></label></div>
+                </div>
+            </div>
+            <div class="new_owner"><label for="new_owner"><input type="radio" id="new_owner" name="newORold_owner" required><p>Новый владелец</p></label></div>
+            <div class="old_owner"><label for="old_owner"><input type="radio" id="old_owner" name="newORold_owner" value="old_owner" required><p>Зарегистрирован ранее</p></label></div><br>
+
             <div class="buttons_of_form">
                 <input type="submit" id="button_submit">
                 <input type="reset" id="button_reset">

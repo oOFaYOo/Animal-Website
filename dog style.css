@@ -208,7 +208,7 @@ form{
 }
 
 .full_name{
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
     font-size: 17px;
     font-family: "Impact", fantasy;
@@ -221,7 +221,7 @@ form{
 .phone_number{
     text-align: center;
     font-size: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .phone_number input{
@@ -272,7 +272,7 @@ form{
 }
 
 .buttons_of_form{
-    margin-top: 45px;
+    margin-top: 15px;
 }
 
 .buttons_of_form input{
@@ -298,4 +298,41 @@ form{
 input[type="submit"], input[type="reset"]:focus{
     outline: none;
     border: none;
+}
+
+#description_of_owner{
+    width: 245px;
+    height: 88.4px;
+    margin-top: 15px;
+}
+
+.phone_OldOwner{
+    margin-left: 5px;
+    font-size: 15px;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+.phone_OldOwner input{
+    margin-top: 15px;
+    width: 230px;
+}
+
+.new_owner p, .old_owner p{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    display: inline;
+    text-align: center;
+}
+
+.old_owner{
+    padding: 0;
+    margin: 0;
+}
+
+.new_owner{
+    padding: 0;
+    margin-top: 10px;
 }
