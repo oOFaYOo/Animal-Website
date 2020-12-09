@@ -7,12 +7,18 @@ body {
     background-image: url("back for main.png");
     background-size: cover;
 }
+.back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(239, 239, 239, 0.7);
+}
 .main {
     width: 21%;
     height: 100%;
     position: relative;
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.51);
+    background-color: rgba(255, 255, 255, 0.84);
     border: 10px rgba(135, 135, 135, 0) solid;
     border-radius: 5%;
 }
@@ -37,7 +43,7 @@ body {
     min-height: 130px;
 }
 p {
-    color: #707070;
+    color: #5e5e5e;
     text-align: center;
     position: relative;
     font-size: 33px;
@@ -48,7 +54,7 @@ p {
 .main:hover{
     cursor: pointer;
     transform: scale(1.05, 1.05);
-    background-color: rgba(255, 255, 255, 0.91);
+    background-color: rgba(255, 255, 255, 0.98);
     border: 10px rgba(135, 135, 135, 0.9) solid;
     border-radius: 5%;
 }
