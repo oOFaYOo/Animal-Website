@@ -18,13 +18,20 @@ oldOwner.onchange = () => {
     descriptionNewOwner.hidden = true;
     if(descriptionNewOwner.hidden === true){document.getElementById("phone_num").disabled = "disabled";}
     if(descriptionNewOwner.hidden === true){document.getElementById("name_of_owner").disabled = "disabled";}
+    if(descriptionNewOwner.hidden === true){document.getElementById("phone_num").removeAttribute("required");}
+    if(descriptionNewOwner.hidden === true){document.getElementById("name_of_owner").removeAttribute("required");}
+    if(descriptionNewOwner.hidden === true){document.getElementById("phone_OldOwner").required = "required";}
     document.querySelector(".phone_OldOwner").hidden = false;
     document.getElementById("phone_OldOwner").removeAttribute("disabled");
 };
 newOwner.onchange = () => {
     if(descriptionNewOwner.hidden === false){
         document.getElementById("phone_OldOwner").disabled = "disabled";
-    }descriptionNewOwner.hidden = false;
+    }
+    document.getElementById("phone_num").required = "required";
+    document.getElementById("name_of_owner").required = "required";
+    document.getElementById("phone_OldOwner").removeAttribute("required");
+    descriptionNewOwner.hidden = false;
     document.querySelector(".phone_OldOwner").hidden = true;
     document.getElementById("phone_num").removeAttribute("disabled");
     document.getElementById("name_of_owner").removeAttribute("disabled");
