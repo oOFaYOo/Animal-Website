@@ -22,6 +22,8 @@ oldOwner.onchange = () => {
     if(descriptionNewOwner.hidden === true){document.getElementById("phone_OldOwner").required = "required";}
     document.querySelector(".phone_OldOwner").hidden = false;
     document.getElementById("phone_OldOwner").removeAttribute("disabled");
+    document.getElementById("name_of_owner").value = "";
+    document.getElementById("phone_num").value = "";
 };
 newOwner.onchange = () => {
     if(descriptionNewOwner.hidden === false){
@@ -34,6 +36,7 @@ newOwner.onchange = () => {
     document.querySelector(".phone_OldOwner").hidden = true;
     document.getElementById("phone_num").removeAttribute("disabled");
     document.getElementById("name_of_owner").removeAttribute("disabled");
+    document.getElementById("phone_OldOwner").value = "";
 };
 
 
@@ -44,3 +47,4 @@ document.getElementById("button_reset").onclick = () => {
     document.getElementById("name_of_owner").removeAttribute("disabled");
     document.getElementById("phone_OldOwner").disabled = "disabled";
 };
+
