@@ -1,4 +1,3 @@
-let addNewAnimal = document.querySelector(".add_new_cat");
 let oldOwner = document.getElementById("old_owner");
 let newOwner = document.getElementById("new_owner");
 let descriptionNewOwner = document.getElementById("description_of_NewOwner");
@@ -7,11 +6,12 @@ let nameOfOwner = document.getElementById("name_of_owner");
 let phoneOldOwner = document.getElementById("phone_OldOwner");
 let phoneOldOwnerArea = document.querySelector(".phone_OldOwner");
 
-document.getElementById("close_reg_form").onclick = () => {
-    addNewAnimal.hidden = true
+document.querySelector(".add_dog").onclick = () => {
+    document.querySelector(".add_new_dog").hidden = false
 };
-document.querySelector(".add_bog").onclick = () => {
-    addNewAnimal.hidden = false
+
+document.getElementById("close_reg_form").onclick = () => {
+    document.querySelector(".add_new_dog").hidden = true
 };
 
 oldOwner.onchange = () => {
