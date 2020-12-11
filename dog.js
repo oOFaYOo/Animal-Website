@@ -1,50 +1,52 @@
-let addDog = document.querySelector(".add_dog");
-let addNewAnimal = document.querySelector(".add_new_dog");
-addDog.onclick = () => {
-    addNewAnimal.hidden = false
-};
-
-let closeRegForm = document.getElementById("close_reg_form");
-closeRegForm.onclick = () => {
-    addNewAnimal.hidden = true
-};
-
-
+let addNewAnimal = document.querySelector(".add_new_cat");
 let oldOwner = document.getElementById("old_owner");
 let newOwner = document.getElementById("new_owner");
 let descriptionNewOwner = document.getElementById("description_of_NewOwner");
+let phoneNum = document.getElementById("phone_num");
+let nameOfOwner = document.getElementById("name_of_owner");
+let phoneOldOwner = document.getElementById("phone_OldOwner");
+let phoneOldOwnerArea = document.querySelector(".phone_OldOwner");
+
+document.getElementById("close_reg_form").onclick = () => {
+    addNewAnimal.hidden = true
+};
+document.querySelector(".add_bog").onclick = () => {
+    addNewAnimal.hidden = false
+};
 
 oldOwner.onchange = () => {
     descriptionNewOwner.hidden = true;
-    if(descriptionNewOwner.hidden === true){document.getElementById("phone_num").disabled = "disabled";}
-    if(descriptionNewOwner.hidden === true){document.getElementById("name_of_owner").disabled = "disabled";}
-    if(descriptionNewOwner.hidden === true){document.getElementById("phone_num").removeAttribute("required");}
-    if(descriptionNewOwner.hidden === true){document.getElementById("name_of_owner").removeAttribute("required");}
-    if(descriptionNewOwner.hidden === true){document.getElementById("phone_OldOwner").required = "required";}
-    document.querySelector(".phone_OldOwner").hidden = false;
-    document.getElementById("phone_OldOwner").removeAttribute("disabled");
-    document.getElementById("name_of_owner").value = "";
-    document.getElementById("phone_num").value = "";
-};
-newOwner.onchange = () => {
-    if(descriptionNewOwner.hidden === false){
-        document.getElementById("phone_OldOwner").disabled = "disabled";
+    if (descriptionNewOwner.hidden === true) {
+        phoneNum.disabled = "disabled";
+        nameOfOwner.disabled = "disabled";
+        phoneNum.removeAttribute("required");
+        nameOfOwner.removeAttribute("required");
+        phoneOldOwner.required = "required";
     }
-    document.getElementById("phone_num").required = "required";
-    document.getElementById("name_of_owner").required = "required";
-    document.getElementById("phone_OldOwner").removeAttribute("required");
-    descriptionNewOwner.hidden = false;
-    document.querySelector(".phone_OldOwner").hidden = true;
-    document.getElementById("phone_num").removeAttribute("disabled");
-    document.getElementById("name_of_owner").removeAttribute("disabled");
-    document.getElementById("phone_OldOwner").value = "";
+    phoneOldOwnerArea.hidden = false;
+    phoneOldOwner.removeAttribute("disabled");
+    nameOfOwner.value = "";
+    phoneNum.value = "";
 };
 
+newOwner.onchange = () => {
+    if (descriptionNewOwner.hidden === false) {
+        phoneOldOwner.disabled = "disabled";
+    }
+    phoneNum.required = "required";
+    nameOfOwner.required = "required";
+    phoneOldOwner.removeAttribute("required");
+    descriptionNewOwner.hidden = false;
+    phoneOldOwnerArea.hidden = true;
+    phoneNum.removeAttribute("disabled");
+    nameOfOwner.removeAttribute("disabled");
+    phoneOldOwner.value = "";
+};
 
 document.getElementById("button_reset").onclick = () => {
     descriptionNewOwner.hidden = false;
-    document.querySelector(".phone_OldOwner").hidden = true;
-    document.getElementById("phone_num").removeAttribute("disabled");
-    document.getElementById("name_of_owner").removeAttribute("disabled");
-    document.getElementById("phone_OldOwner").disabled = "disabled";
+    phoneOldOwnerArea.hidden = true;
+    phoneNum.removeAttribute("disabled");
+    nameOfOwner.removeAttribute("disabled");
+    phoneOldOwner.disabled = "disabled";
 };
