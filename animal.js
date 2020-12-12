@@ -1,3 +1,13 @@
+// GET /pets
+// PUT /pets
+// GET /pets/types
+// GET /pets/parrotFeathersColors
+// GET /owners
+// GET /owners/{ownerId}
+// PUT /owners
+// 192.168.0.104:5000 //ноут
+// 192.168.0.101:5000 //комп
+
 let oldOwner = document.getElementById("old_owner");
 let newOwner = document.getElementById("new_owner");
 let descriptionNewOwner = document.getElementById("description_of_NewOwner");
@@ -7,10 +17,10 @@ let phoneOldOwner = document.getElementById("phone_OldOwner");
 let phoneOldOwnerArea = document.querySelector(".phone_OldOwner");
 
 document.getElementById("close_reg_form").onclick = () => {
-    document.querySelector(".add_new_cat").hidden = true
+    document.getElementById("add_new_animal").hidden = true
 };
-document.querySelector(".add_cat").onclick = () => {
-    document.querySelector(".add_new_cat").hidden = false
+document.getElementById("button_for_newAnimal").onclick = () => {
+    document.getElementById("add_new_animal").hidden = false
 };
 
 oldOwner.onchange = () => {
@@ -50,4 +60,19 @@ document.getElementById("button_reset").onclick = () => {
     phoneOldOwner.disabled = "disabled";
 };
 
+
+let get_pets = new XMLHttpRequest();
+get_pets.open("get", "http://192.168.0.101:5000/pets",false);
+
+get_pets.send();
+// JSON.parse(get_pets.response);
+console.log(get_pets.response);
+class animal {
+    constructor(name, gender, breed, age){
+    this.name = name;
+    this.gender = gender;
+    this.breed = breed;
+    this.age = age;
+}
+}
 

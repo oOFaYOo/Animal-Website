@@ -40,18 +40,18 @@ summary::-webkit-details-marker {
     margin: 0 auto 0 auto;
 }
 
-.name_of_dog{
+.name_of_animal_desc{
     height: 30px;
     border-radius: 10px;
     background-color: #9a7868;
     margin-bottom: 5px;
 }
 
-.name_of_dog:hover{
+.name_of_animal_desc:hover{
     background-color: #c49f8a;
 }
 
-.name_of_dog p{
+.name_of_animal_desc p{
     color: white;
     font-family: "Marker Felt", "Impakt", fantasy;
     line-height: 30px;
@@ -118,7 +118,7 @@ a {
     font-size: 20px;
 }
 
-.add_dog{
+#button_for_newAnimal{
     display: inline-block;
     width: 49.5%;
     background-color: rgba(164, 86, 139, 0.8);
@@ -129,7 +129,7 @@ a {
     min-width: 187px;
 }
 
-.add_dog:hover{
+#button_for_newAnimal:hover{
     cursor: pointer;
     background-color: #db84be;
 }
@@ -153,7 +153,7 @@ a {
     min-width: 305px;
 }
 
-.add_new_dog{
+#add_new_animal{
     position: absolute;
     width: 100%;
     height: 100%;
