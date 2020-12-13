@@ -4,7 +4,7 @@ body{
     height: 100%;
     position: absolute;
     padding: 0;
-    background-image: url("back for dog.png");
+    background-image: url("back_for_cat.png");
     background-size: cover;
     background-repeat:repeat repeat;
 
@@ -13,7 +13,7 @@ body{
 .back_white{
     background: linear-gradient(to right, rgba(217, 217, 217, 0.3) 0%, rgba(217, 217, 217, 0.3) 15%,
     rgba(255, 255, 255, 0.95) 15%, rgba(255, 255, 255, 0.95) 85%,
-    rgba(217, 217, 217, 0.3) 85%, rgba(217, 217, 217, 0.3) 100%);
+                                            rgba(217, 217, 217, 0.3) 85%, rgba(217, 217, 217, 0.3) 100%);
     height: 100%;
     position: absolute;
     width: 100%;
@@ -34,7 +34,7 @@ summary::-webkit-details-marker {
 
 .animal_description{
     width: 35%;
-    background-color: rgba(196, 159, 138, 0.4);
+    background-color: rgba(234, 215, 109, 0.4);
     border-radius: 10px;
     min-width: 377px;
     margin: 0 auto 0 auto;
@@ -43,12 +43,12 @@ summary::-webkit-details-marker {
 .name_of_animal_desc{
     height: 30px;
     border-radius: 10px;
-    background-color: #9a7868;
+    background-color: #d9bd6e;
     margin-bottom: 5px;
 }
 
 .name_of_animal_desc:hover{
-    background-color: #c49f8a;
+    background-color: #efd180;
 }
 
 .name_of_animal_desc p{
@@ -63,10 +63,10 @@ summary::-webkit-details-marker {
 
 .owner{
     border-radius: 0;
-    background-color: #af6991;
+    background-color: #63a7c4;
 }
 .owner_description{
-    background-color: rgb(235, 201, 224);
+    background-color: rgb(181, 215, 221);
     padding-bottom: 1px;
 }
 
@@ -84,7 +84,7 @@ p{
 .to_mainpage{
     position: relative;
     width: 49.5%;
-    background-color: rgba(164, 86, 139, 0.8);
+    background-color: rgba(61, 139, 175, 0.8);
     height: 30px;
     border-radius: 10px;
     display: inline-block;
@@ -94,7 +94,7 @@ p{
 
 .to_mainpage:hover{
     cursor: pointer;
-    background-color: #db84be;
+    background-color: #5ebed9;
 }
 
 a {
@@ -121,7 +121,7 @@ a {
 #button_for_newAnimal{
     display: inline-block;
     width: 49.5%;
-    background-color: rgba(164, 86, 139, 0.8);
+    background-color: rgba(61, 139, 175, 0.8);
     height: 30px;
     border-radius: 10px;
     margin: 0;
@@ -131,7 +131,7 @@ a {
 
 #button_for_newAnimal:hover{
     cursor: pointer;
-    background-color: #db84be;
+    background-color: #5ebed9;
 }
 
 #top_buttons div:active{
@@ -161,7 +161,7 @@ a {
     background-color: rgba(18, 18, 18, 0.8);
 }
 #close_reg_form{
-    color: #ad8378;
+    color: #d9bd6e;
     float: right;
     font-size: 30px;
     margin: 10px 20px 10px 10px;
@@ -208,7 +208,7 @@ form{
 }
 
 .full_name{
-    margin-top: 20px;
+    margin-top: 35px;
     text-align: center;
     font-size: 17px;
     font-family: "Impact", fantasy;
@@ -221,7 +221,8 @@ form{
 .phone_number{
     text-align: center;
     font-size: 15px;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .phone_number input{
@@ -229,46 +230,25 @@ form{
 }
 
 .genderF, .genderM{
+    margin-left: 20px;
+}
+
+.genderM{
     margin-bottom: 5px;
-    width: 45px;
-    margin-left: 10px;
-
 }
-.genderF p , .genderM p{
-    display: inline;
+
+.new_owner p, .old_owner p{
     margin: 0;
     padding: 0;
-    font-size: 15px;
     font-family: sans-serif;
-}
-
-.sizeB p, .sizeS p {
+    font-size: 12px;
     display: inline;
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
-    font-family: sans-serif;
+    text-align: center;
 }
 
-.block_for_group1 {
-    display: inline-block;
-    width: 46px;
-    margin: 0;
+.old_owner, .new_owner{
     padding: 0;
-}
-
-.block_for_group{
-    display: inline-block;
-    width: 145px;
     margin: 0;
-    margin-bottom: 15px;
-    padding: 0;
-}
-
-.sizeB, .sizeS{
-    width: 140px;
-    margin-bottom: 5px;
-    margin-left: 50px;
 }
 
 .buttons_of_form{
@@ -276,7 +256,7 @@ form{
 }
 
 .buttons_of_form input{
-    background-color: rgb(189, 123, 168);
+    background-color: rgb(78, 171, 189);
     color: white;
     font-family: "Impact", fantasy;
     width: 120px;
@@ -288,7 +268,7 @@ form{
 
 .buttons_of_form input:hover{
     cursor: pointer;
-    background-color: #e498cb;
+    background-color: #81c8d8;
 }
 
 .buttons_of_form input:active{
@@ -303,7 +283,7 @@ input[type="submit"], input[type="reset"]:focus{
 #description_of_owner{
     width: 245px;
     height: 88.4px;
-    margin-top: 15px;
+    margin-top: 35px;
 }
 
 .phone_OldOwner{
@@ -311,28 +291,7 @@ input[type="submit"], input[type="reset"]:focus{
     font-size: 15px;
     font-family: sans-serif;
     text-align: center;
-    margin-top: 20px;
 }
 .phone_OldOwner input{
-    margin-top: 15px;
     width: 230px;
-}
-
-.new_owner p, .old_owner p{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    font-size: 12px;
-    display: inline;
-    text-align: center;
-}
-
-.old_owner{
-    padding: 0;
-    margin: 0;
-}
-
-.new_owner{
-    padding: 0;
-    margin-top: 10px;
 }

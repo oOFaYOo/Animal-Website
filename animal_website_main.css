@@ -4,7 +4,7 @@ body {
     height: 100%;
     position: absolute;
     padding: 0;
-    background-image: url("back for main.png");
+    background-image: url("back_for_main.png");
     background-size: cover;
 }
 .back{
