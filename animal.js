@@ -99,6 +99,12 @@ function choiceFeathersColor (arr, obj) {
         }
     }
 }
+// function getRightSizeOfDog(arr) {
+//     for (let part of arr){
+//         if(part.size){part.size = "большой"}
+//         if(part.size === false){part.size = "маленький"}
+//     }
+// }
 
 changeType(allPetsWithTypeNum, listOfPetsType);
 choiceFeathersColor(allPetsWithoutFeathersColor, feathersColors)
@@ -168,6 +174,11 @@ function animalValidation(arrOfAnimal) {
 animalValidation(UnvalidatedCats);
 animalValidation(UnvalidatedDogs);
 animalValidation(UnvalidatedParrots);
+
+dogs = dogs.map((item)=>{
+    if(item.size){item.size = "большой"; return item}
+    else {item.size = "маленький"; return item}
+});
 
 console.log(cats);
 console.log(dogs);
