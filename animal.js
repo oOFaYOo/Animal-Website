@@ -178,8 +178,8 @@ let allPets = animalValidation(allPetsUnvalidated);
 
 function setCorrectSize(obj){
     if(obj.size){
-        obj.size = "большой"}
-    else if (obj.size === false){obj.size = "маленький"}
+        obj.size = "Большой"}
+    else if (obj.size === false){obj.size = "Маленький"}
 }
 
 allPets.map(setCorrectSize);
@@ -208,6 +208,12 @@ function constructAnimalElement(animal) {
         let color = document.createElement("p");
         color.innerHTML = "Цвет перьев: " + animal.color;
         container.append(color);
+    }
+
+    if (animal.type.toLowerCase() === "dog"){
+        let size = document.createElement("p");
+        size.innerHTML = "Размер: " + animal.size;
+        container.append(size);
     }
 
     let ownerContainer = document.createElement("details");
