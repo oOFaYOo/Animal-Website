@@ -61,47 +61,65 @@ document.getElementById("button_reset").onclick = () => {
 };
 
 
- let get_pets = new XMLHttpRequest();
-get_pets.open("get", "http://192.168.0.101:5000/pets",false);
-get_pets.send();
-let allPetsWithTypeNum = JSON.parse(get_pets.response);
+class ApiClient {
+    static getPets = function(){
+        let pets = new XMLHttpRequest();
+        pets.open("get", "http://192.168.0.101:5000/pets",false);
+        pets.send();
+        return JSON.parse(pets.response);
+    };
+    static getPetsType = function() {
+        let petsType = new XMLHttpRequest();
+        petsType.open("get", "http://192.168.0.101:5000/pets/types", false);
+        petsType.send();
+        return JSON.parse(petsType.response);
+    };
+    static getFeathersColors = function () {
+        let feathersColors = new XMLHttpRequest();
+        feathersColors.open("get", "http://192.168.0.101:5000/pets/parrotFeathersColors", false);
+        feathersColors.send();
+        return JSON.parse(feathersColors.response);
+    };
+}
 
-let pets_type = new XMLHttpRequest();
-pets_type.open("get", "http://192.168.0.101:5000/pets/types", false);
-pets_type.send();
-let listOfPetsType = JSON.parse(pets_type.response);
-let allPetsWithoutFeathersColor = [];
-let allPets = [];
+let allPets_noEditTypeAndColor = new ApiClient.getPets();
+let typesOfAnimals = new ApiClient.getPetsType();
+let feathersColors = new ApiClient.getFeathersColors();
 
 
-let parrotFeathersColors = new XMLHttpRequest();
-parrotFeathersColors.open("get", "http://192.168.0.101:5000/pets/parrotFeathersColors", false);
-parrotFeathersColors.send();
-let feathersColors = JSON.parse(parrotFeathersColors.response);
-
-function changeType (arr, obj) {
+function getCorrectType (arr, obj) {
+    let someArr = [];
     for (let key in obj) {
         for (let part of arr) {
             if (`${part.Type}` === key) {
                 part.Type = obj[key];
-                allPetsWithoutFeathersColor.push(part);
+                someArr.push(part);
             }
         }
    }
-}
-function choiceFeathersColor (arr, obj) {
-    for (let key in obj) {
-        for (let part of arr) {
-            if (`${part.FeathersColor}` === key) {
-                part.FeathersColor = obj[key];
-            }
-            allPets.push(part);
-        }
-    }
+    return someArr;
 }
 
-changeType(allPetsWithTypeNum, listOfPetsType);
-choiceFeathersColor(allPetsWithoutFeathersColor, feathersColors)
+let allPets_noEditColor = getCorrectType(allPets_noEditTypeAndColor, typesOfAnimals);
+
+function getCorrectFeathersColor (arr, obj) {
+    let someArr = [];
+    for (let part of arr) {
+        if (part.FeathersColor !== undefined){
+            for (let key in obj) {
+                if (`${part.FeathersColor}` === key) {
+                    part.FeathersColor = obj[key];
+                }
+            }
+        }
+
+        someArr.push(part);
+    }
+    return someArr;
+}
+
+let allPetsUnvalidatedUnidentified = getCorrectFeathersColor(allPets_noEditColor, feathersColors);
+
 
 class Animals {
     constructor(type, name, breed, age){
@@ -126,54 +144,115 @@ class Parrots extends Animals{
     }
 }
 
-function IdentifyAnimal(arrOfObj) {
-    for (let part of arrOfObj) {
+function IdentifyAnimals(arr) {
+    let someArr = [];
+    for (let part of arr) {
         switch (part.Type) {
             case "Cat":
-                UnvalidatedCats.push(new Cats(part.Type, part.Name, part.Breed, part.Age));
+                someArr.push(new Cats(part.Type, part.Name, part.Breed, part.Age));
                 break;
             case "Dog":
-                UnvalidatedDogs.push(new Dogs(part.Type, part.Name, part.Breed, part.Age, part.IsBigDog));
+                someArr.push(new Dogs(part.Type, part.Name, part.Breed, part.Age, part.IsBigDog));
                 break;
             case "Parrot":
-                UnvalidatedParrots.push(new Parrots(part.Type, part.Name, part.Breed, part.Age, part.FeathersColor));
+                someArr.push(new Parrots(part.Type, part.Name, part.Breed, part.Age, part.FeathersColor));
                 break;
         }
     }
+    return someArr;
 }
 
-let UnvalidatedCats = [];
-let UnvalidatedDogs = [];
-let UnvalidatedParrots = [];
+let allPetsUnvalidated = IdentifyAnimals(allPetsUnvalidatedUnidentified);
 
-IdentifyAnimal(allPets);
-
-let cats =[];
-let dogs = [];
-let parrots = [];
-
-function animalValidation(arrOfAnimal) {
-    for (let part of arrOfAnimal) {
+function animalValidation(arr) {
+    let someArr = [];
+    for (let part of arr) {
         if (part.name !== null && part.name !== " " && part.name !== "" && isNaN(part.name) && part.breed !== " " && part.breed !== "" && isNaN(part.breed) && typeof (part.age) === "number") {
-            if (part.type === "Cat")
-                cats.push(part);
-            if (part.type === "Dog")
-                dogs.push(part);
-            if (part.type === "Parrot")
-                parrots.push(part);
+            someArr.push(part);
         }
     }
+    return someArr;
 }
 
-animalValidation(UnvalidatedCats);
-animalValidation(UnvalidatedDogs);
-animalValidation(UnvalidatedParrots);
+let allPets = animalValidation(allPetsUnvalidated);
 
-dogs = dogs.map((item)=>{
-    if(item.size){item.size = "большой"; return item}
-    else {item.size = "маленький"; return item}
-});
+function setCorrectSize(obj){
+    if(obj.size){
+        obj.size = "большой"}
+    else if (obj.size === false){obj.size = "маленький"}
+}
 
-console.log(cats);
-console.log(dogs);
-console.log(parrots);
+allPets.map(setCorrectSize);
+
+
+
+function constructAnimalElement(animal) {
+
+    let container = document.createElement("details");
+    container.className = "animal_description";
+    container.innerHTML = `<summary class="name_of_animal_desc"><p class="Name">${animal.name}</p></summary>`;
+
+    let gender = document.createElement("p");
+    gender.innerHTML = "Пол: Мужской";
+    container.append(gender);
+
+    let breed = document.createElement("p");
+    breed.innerHTML = "Порода: " + animal.breed;
+    container.append(breed);
+
+    let age = document.createElement("p");
+    age.innerHTML = "Возраст: " + animal.age;
+    container.append(age);
+
+    if (animal.type.toLowerCase() === "parrot"){
+        let color = document.createElement("p");
+        color.innerHTML = "Цвет перьев: " + animal.color;
+        container.append(color);
+    }
+
+    let ownerContainer = document.createElement("details");
+    ownerContainer.className = "owner_description";
+    ownerContainer.innerHTML = '<summary class="owner"><p>' + 'ВЛАДЕЛЕЦ' + '</p></summary>';
+    container.append(ownerContainer);
+
+    let ownerName = document.createElement("p");
+    ownerName.className = "OwnerName";
+    ownerName.innerHTML = "ФИО:";
+    ownerContainer.append(ownerName);
+
+    let ownerId = document.createElement("p");
+    ownerId.className = "OwnerNum";
+    ownerId.innerHTML = "Телефон:";
+    ownerContainer.append(ownerId);
+
+    return container;
+
+}
+
+function showInWebSite(animals) {
+    let animalsList = document.getElementById("main_info");
+    for (let animal of animals) {
+        let animalElement = constructAnimalElement(animal);
+        animalsList.append(animalElement);
+
+    }
+
+}
+
+let animalTypeNow = document.getElementById("main_info").getAttribute("type");
+
+let petsForShow = allPets.filter((item)=>item.type.toLowerCase() === animalTypeNow.toLowerCase());
+
+showInWebSite(petsForShow);
+
+
+
+
+// document.getElementById("button_submit").onclick = () => {
+//     let regFormPet = new XMLHttpRequest();
+//     regFormPet.open("put", "http://192.168.0.101:5000/pets", false);
+//     regFormPet.send();
+//     let regFormOwner = new XMLHttpRequest();
+//     regFormOwner.open("put", "http://192.168.0.101:5000/owners", false);
+//     regFormOwner.send();
+// };
