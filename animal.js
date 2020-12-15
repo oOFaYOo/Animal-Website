@@ -8,6 +8,7 @@
 // 192.168.0.104:5000 //ноут
 // 192.168.0.101:5000 //комп
 
+
 let oldOwner = document.getElementById("old_owner");
 let newOwner = document.getElementById("new_owner");
 let descriptionNewOwner = document.getElementById("description_of_NewOwner");
@@ -61,6 +62,7 @@ document.getElementById("button_reset").onclick = () => {
 };
 
 
+
 class ApiClient {
     static getPets = function(){
         let pets = new XMLHttpRequest();
@@ -80,6 +82,15 @@ class ApiClient {
         feathersColors.send();
         return JSON.parse(feathersColors.response);
     };
+    static getOwner(ownerID) {
+        let owner = new XMLHttpRequest();
+        owner.open("get", `http://192.168.0.101:5000/owners/${ownerID}`,false);
+        owner.send();
+        if (owner.response.status !== 200){
+            return {fullName: " ", phoneNumber: " "}
+        }
+        return JSON.parse(owner.response);
+    }
 }
 
 let allPets_noEditTypeAndColor = new ApiClient.getPets();
@@ -87,7 +98,7 @@ let typesOfAnimals = new ApiClient.getPetsType();
 let feathersColors = new ApiClient.getFeathersColors();
 
 
-function getCorrectType (arr, obj) {
+function setCorrectType (arr, obj) {
     let someArr = [];
     for (let key in obj) {
         for (let part of arr) {
@@ -100,9 +111,9 @@ function getCorrectType (arr, obj) {
     return someArr;
 }
 
-let allPets_noEditColor = getCorrectType(allPets_noEditTypeAndColor, typesOfAnimals);
+let allPets_noEditColor = setCorrectType(allPets_noEditTypeAndColor, typesOfAnimals);
 
-function getCorrectFeathersColor (arr, obj) {
+function setCorrectFeathersColor (arr, obj) {
     let someArr = [];
     for (let part of arr) {
         if (part.FeathersColor !== undefined){
@@ -118,27 +129,29 @@ function getCorrectFeathersColor (arr, obj) {
     return someArr;
 }
 
-let allPetsUnvalidatedUnidentified = getCorrectFeathersColor(allPets_noEditColor, feathersColors);
+let allPetsUnvalidatedUnidentified = setCorrectFeathersColor(allPets_noEditColor, feathersColors);
 
 
 class Animals {
-    constructor(type, name, breed, age){
+    constructor(type, name, breed, age, id){
     this.type = type;
     this.name = name;
     this.breed = breed;
     this.age = age;
+    this.ownerName = ApiClient.getOwner(id).fullName;
+    this.ownerPhone = ApiClient.getOwner(id).phoneNumber;
 }
 }
 class Cats extends Animals{
 }
 class Dogs extends Animals{
-    constructor(type, name, breed, age, size){
+    constructor(type, name, breed, age, size, id){
         super(type, name, breed, age);
         this.size = size;
     }
 }
 class Parrots extends Animals{
-    constructor(type, name, breed, age, color){
+    constructor(type, name, breed, age, color, id){
         super(type, name, breed, age);
         this.color = color;
     }
@@ -149,13 +162,13 @@ function IdentifyAnimals(arr) {
     for (let part of arr) {
         switch (part.Type) {
             case "Cat":
-                someArr.push(new Cats(part.Type, part.Name, part.Breed, part.Age));
+                someArr.push(new Cats(part.Type, part.Name, part.Breed, part.Age, part.Owner));
                 break;
             case "Dog":
-                someArr.push(new Dogs(part.Type, part.Name, part.Breed, part.Age, part.IsBigDog));
+                someArr.push(new Dogs(part.Type, part.Name, part.Breed, part.Age, part.IsBigDog, part.Owner));
                 break;
             case "Parrot":
-                someArr.push(new Parrots(part.Type, part.Name, part.Breed, part.Age, part.FeathersColor));
+                someArr.push(new Parrots(part.Type, part.Name, part.Breed, part.Age, part.FeathersColor, part.Owner));
                 break;
         }
     }
@@ -167,7 +180,10 @@ let allPetsUnvalidated = IdentifyAnimals(allPetsUnvalidatedUnidentified);
 function animalValidation(arr) {
     let someArr = [];
     for (let part of arr) {
-        if (part.name !== null && part.name !== " " && part.name !== "" && isNaN(part.name) && part.breed !== " " && part.breed !== "" && isNaN(part.breed) && typeof (part.age) === "number") {
+        if (part.name !== null && part.name !== " " && part.name !== "" && isNaN(part.name) &&
+            part.breed !== " " && part.breed !== "" && isNaN(part.breed) &&
+            typeof (part.age) === "number" &&
+            part.ownerName !== null && part.ownerName !== " " && part.ownerName !== "" && isNaN(part.ownerName)) {
             someArr.push(part);
         }
     }
@@ -223,12 +239,12 @@ function constructAnimalElement(animal) {
 
     let ownerName = document.createElement("p");
     ownerName.className = "OwnerName";
-    ownerName.innerHTML = "ФИО:";
+    ownerName.innerHTML = "ФИО: " + animal.ownerName;
     ownerContainer.append(ownerName);
 
     let ownerId = document.createElement("p");
     ownerId.className = "OwnerNum";
-    ownerId.innerHTML = "Телефон:";
+    ownerId.innerHTML = "Телефон: " + animal.ownerPhone;
     ownerContainer.append(ownerId);
 
     return container;
