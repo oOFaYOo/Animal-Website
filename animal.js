@@ -61,8 +61,6 @@ document.getElementById("button_reset").onclick = () => {
     phoneOldOwner.disabled = "disabled";
 };
 
-
-
 class ApiClient {
     static getPets = function(){
         let pets = new XMLHttpRequest();
@@ -86,17 +84,16 @@ class ApiClient {
         let owner = new XMLHttpRequest();
         owner.open("get", `http://192.168.0.101:5000/owners/${ownerID}`,false);
         owner.send();
-        if (owner.response.status !== 200){
+        if (owner.status !== 200){
             return {fullName: " ", phoneNumber: " "}
         }
         return JSON.parse(owner.response);
     }
 }
 
-let allPets_noEditTypeAndColor = new ApiClient.getPets();
-let typesOfAnimals = new ApiClient.getPetsType();
-let feathersColors = new ApiClient.getFeathersColors();
-
+let allPets_noEditTypeAndColor = ApiClient.getPets();
+let typesOfAnimals = ApiClient.getPetsType();
+let feathersColors = ApiClient.getFeathersColors();
 
 function setCorrectType (arr, obj) {
     let someArr = [];
@@ -130,7 +127,6 @@ function setCorrectFeathersColor (arr, obj) {
 }
 
 let allPetsUnvalidatedUnidentified = setCorrectFeathersColor(allPets_noEditColor, feathersColors);
-
 
 class Animals {
     constructor(type, name, breed, age, id){
@@ -199,8 +195,6 @@ function setCorrectSize(obj){
 }
 
 allPets.map(setCorrectSize);
-
-
 
 function constructAnimalElement(animal) {
 
