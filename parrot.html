@@ -32,24 +32,24 @@
 <div id="add_new_animal" hidden>
     <div id="back_white_for_reg">
         <div id="close_reg_form">✖</div>
-        <form>
+        <form class="parrot_reg">
             <div class="name_of_animal"><label for="name_of_animal">Имя питомца<br><input placeholder="Кеша"
                                                                                           id="name_of_animal"
                                                                                           type="text"
                                                                                           name="name_of_animal" required
                                                                                           pattern="[A-ZА-Я]{1}[a-zа-я -]{1,}"></label>
             </div>
-            <div class="genderM"><label for="gen_m"><input type="radio" id="gen_m" name="gender" value="male" required>М</label>
+            <div class="genderM"><label for="gen_m"><input type="radio" id="gen_m" class="gender" name="gender" value="0" required>М</label>
             </div>
-            <div class="genderF"><label for="gen_f"><input type="radio" id="gen_f" name="gender" value="female"
+            <div class="genderF"><label for="gen_f"><input type="radio" id="gen_f" name="gender" class="gender" value="1"
                                                            required>Ж</label></div>
             <br>
             <div class="feathers">
                 <label for="color_of_feathers"><select id="color_of_feathers" required>
-                    <option selected disabled value="">Цвет перьев</option>
-                    <option id="color1" value="0"></option>
-                    <option id="color2" value="1"></option>
-                    <option id="color3" value="2"></option>
+                    <option selected disabled class="color" value="">Цвет перьев</option>
+                    <option id="color0" value="0"></option>
+                    <option id="color1" value="1"></option>
+                    <option id="color2" value="2"></option>
                 </select></label>
             </div>
             <div class="breed"><label for="breed_of_animal">Порода<br><input placeholder="Какаду" id="breed_of_animal"

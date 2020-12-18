@@ -30,7 +30,7 @@
     <div id="add_new_animal" hidden>
         <div id="back_white_for_reg">
             <div id="close_reg_form">✖</div>
-            <form>
+            <form class="cat_reg">
                 <div class="name_of_animal"><label for="name_of_animal">Имя питомца<br><input placeholder="Барсик"
                                                                                               id="name_of_animal"
                                                                                               type="text"
@@ -38,9 +38,9 @@
                                                                                               required
                                                                                               pattern="[A-ZА-Я]{1}[a-zа-я -]{1,}"></label>
                 </div>
-                <div class="genderM"><label for="gen_m"><input type="radio" id="gen_m" name="gender" value="male"
+                <div class="genderM"><label for="gen_m"><input type="radio" id="gen_m" name="gender" class="gender" value="0"
                                                                required>М</label></div>
-                <div class="genderF"><label for="gen_f"><input type="radio" id="gen_f" name="gender" value="female"
+                <div class="genderF"><label for="gen_f"><input type="radio" id="gen_f" name="gender" class="gender" value="1"
                                                                required>Ж</label></div>
                 <br>
                 <div class="breed"><label for="breed_of_animal">Порода<br><input placeholder="Рэгдолл"
