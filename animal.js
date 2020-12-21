@@ -8,7 +8,7 @@
 // 192.168.0.101:5000 //комп
 // 192.168.0.104:5000 //ноут
 
-const apiUrl = "http://192.168.0.104:5000/";
+const apiUrl = "http://192.168.0.101:5000/";
 
 let oldOwner = document.getElementById("old_owner");
 let newOwner = document.getElementById("new_owner");
@@ -108,7 +108,7 @@ class ApiClient {
         regFormOwner.send(JSON.stringify(obj));
 
         if (regFormOwner.status === 200) {
-            return regFormOwner.response;
+            return JSON.parse(regFormOwner.response);
         }
 
         throw new Error(regFormOwner.status);
@@ -120,10 +120,18 @@ class ApiClient {
         regFormPet.setRequestHeader("Content-Type", "application/json");
         regFormPet.setRequestHeader("Access-Control-Allow-Origin", "*");
         regFormPet.send(JSON.stringify(obj));
+        console.log(JSON.stringify(obj));
         if (regFormPet.status === 200) {
             return;
         }
         throw new Error(regFormPet.status)
+    };
+
+    static findNumber = function (num) {
+        let oldNum = new XMLHttpRequest();
+        oldNum.open("get", apiUrl + "owners/find?phone=%2B" + `${num.slice(1)}`, false);
+        oldNum.send();
+        return JSON.parse(oldNum.response);
     }
 }
 
@@ -329,20 +337,26 @@ if (animalTypeNow === "parrot") {
 }
 
 
-////////////////////////////////////////////////////////////////////////
-
-
 document.getElementsByTagName("form")[0].onsubmit = registration;
 
 function registration() {
     try {
-        let ownerID = ApiClient.putOwner({
-            phoneNumber: document.getElementById("phone_num").value,
-            fullName: document.getElementById("name_of_owner").value
-        });
+        let ownerID = (function () {
+            if (document.getElementById("new_owner").checked === true) {
+                return ApiClient.putOwner({
+                    phoneNumber: document.getElementById("phone_num").value,
+                    fullName: document.getElementById("name_of_owner").value
+                })
+            } else if (document.getElementById("old_owner").checked === true) {
+
+                    return ApiClient.findNumber(document.getElementById("phone_OldOwner").value).id;
+
+            }
+        })();
+
 
         let animalForReg = {
-            type: (() => {
+            type: (function () {
                 if (document.getElementsByTagName("form")[0].className === "parrot_reg") {
                     return 2
                 } else if (document.getElementsByTagName("form")[0].className === "cat_reg") {
@@ -351,29 +365,48 @@ function registration() {
                     return 1
                 }
             })(),
+
             name: document.getElementById("name_of_animal").value,
-            sex: +document.getElementsByClassName("gender")[0],
+            sex: (function () {
+            if(document.getElementById("gen_m").checked === true){
+                return 0;
+            } else
+            if(document.getElementById("gen_f").checked === true){
+                return 1;
+            }
+            })(),
             age: +document.getElementById("age_of_animal").value,
             breed: document.getElementById("breed_of_animal").value,
         };
 
         if (document.getElementsByTagName("form")[0].className === "dog_reg") {
-            animalForReg.isBigDog = () => {
-                if (document.getElementsByClassName("size")[0].value === "small") {
-                    return false
-                } else if (document.getElementsByClassName("size")[0].value === "big") {
-                    return true
+            animalForReg.isBigDog = (function () {
+                if(document.getElementById("size_small").checked === true){
+                    return false;
+                } else
+                if(document.getElementById("size_big").checked === true){
+                    return true;
+                }
+            })()
+            }
+
+        if (document.getElementsByTagName("form")[0].className === "parrot_reg") {
+            animalForReg.feathersColor = (function (){
+                let arr = document.getElementsByTagName("option");
+                for (let part of arr){
+                    if(part.selected === true){
+                        return Number.parseInt(part.value);
+                    }
                 }
             }
+            )()
         }
-        if (document.getElementsByTagName("form")[0].className === "parrot_reg") {
-            animalForReg.feathersColor = +document.getElementsByClassName("color").selected === true
-        }
+
 
         animalForReg.owner = ownerID;
-
         ApiClient.putPet(animalForReg);
         return true;
+
     } catch (e) {
         return false;
     }
