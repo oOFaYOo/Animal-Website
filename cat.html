@@ -6,7 +6,9 @@
     <link rel="shortcut icon" type="image/png" href="animal_cat_pet.png">
     <link rel="stylesheet" href="cat_style.css">
     <link rel="stylesheet" href="all_animals_style.css">
-    <script defer src="./animal.js"></script>
+    <script defer type="module" src="./animal.js"></script>
+    <script defer type="module" src="./api_client.js"></script>
+    <script defer src="./script_for_visual_work.js"></script>
 </head>
 <body>
 <div class="back_white">
@@ -38,9 +40,11 @@
                                                                                               required
                                                                                               pattern="[A-ZА-Я]{1}[a-zа-я -]{1,}"></label>
                 </div>
-                <div class="genderM"><label for="gen_m"><input type="radio" id="gen_m" name="gender" class="gender" value="0"
+                <div class="genderM"><label for="gen_m"><input type="radio" id="gen_m" name="gender" class="gender"
+                                                               value="0"
                                                                required>М</label></div>
-                <div class="genderF"><label for="gen_f"><input type="radio" id="gen_f" name="gender" class="gender" value="1"
+                <div class="genderF"><label for="gen_f"><input type="radio" id="gen_f" name="gender" class="gender"
+                                                               value="1"
                                                                required>Ж</label></div>
                 <br>
                 <div class="breed"><label for="breed_of_animal">Порода<br><input placeholder="Рэгдолл"
@@ -84,5 +88,6 @@
             </form>
         </div>
     </div>
+</div>
 </body>
 </html>
