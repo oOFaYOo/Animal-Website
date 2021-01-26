@@ -5,29 +5,13 @@ let ApiClient = new Api();
 let allPets_noEditTypeAndColor = ApiClient.getPets();
 let typesOfAnimals = ApiClient.getPetsType();
 let feathersColors = ApiClient.getFeathersColors();
-let allPets_noEditColor = allPets_noEditTypeAndColor.map(setCorrectType);
-let allPetsUnvalidatedUnidentified = allPets_noEditColor.map(setCorrectFeathersColor);
+let allPets_noEditColor = allPets_noEditTypeAndColor.map(item => setCorrectType(item, typesOfAnimals));
+let allPetsUnvalidatedUnidentified = allPets_noEditColor.map(item => setCorrectFeathersColor(item, feathersColors));
 
 
-function setCorrectType(obj) {
-    for (let type in typesOfAnimals) {
-        if (`${obj.Type}` === type) {
-            obj.Type = typesOfAnimals[type];
-        }
-    }
-    return obj;
-}
+import {setCorrectType} from "./functions.js";
 
-function setCorrectFeathersColor(obj) {
-    if (obj.FeathersColor !== undefined) {
-        for (let color in feathersColors) {
-            if (`${obj.FeathersColor}` === color) {
-                obj.FeathersColor = feathersColors[color];
-            }
-        }
-    }
-    return obj;
-}
+import {setCorrectFeathersColor} from "./functions.js";
 
 
 class Animals {
@@ -80,15 +64,7 @@ function IdentifyAnimals(arr) {
 
 let allPetsUnvalidated = IdentifyAnimals(allPetsUnvalidatedUnidentified);
 
-
-function animalValidation(obj) {
-    if (obj.name !== null && obj.name !== " " && obj.name !== "" && isNaN(obj.name) &&
-        obj.breed !== " " && obj.breed !== "" && isNaN(obj.breed) &&
-        typeof (obj.age) === "number" &&
-        obj.ownerName !== null && obj.ownerName !== " " && obj.ownerName !== "" && isNaN(obj.ownerName)) {
-        return true;
-    }
-}
+import {animalValidation} from "./functions.js";
 
 let allPets = allPetsUnvalidated.filter(animalValidation);
 
