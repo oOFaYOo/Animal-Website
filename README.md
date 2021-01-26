@@ -2,7 +2,7 @@
 
 This project has no real application and was created for the purpose of practice.
 
-Third experience in writing projects using HTML5, CSS3, JS6
+Third experience in writing projects using HTML5, CSS3, JS
 
 First experience of using classes, modules, interaction between frontend and backend using HTTP
 
