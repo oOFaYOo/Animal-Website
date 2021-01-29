@@ -1,4 +1,4 @@
-# animal_website
+# Animal Website
 
 This project has no real application and was created for the purpose of practice.
 
