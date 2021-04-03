@@ -6,7 +6,7 @@ This catalog has three animal sections. Each section displays information about 
 Also in each section it is possible to add a new animal indicating some individual parameters depending on the type of animal.
 When added, the details of the owner are also indicated. If one owner has several animals and the owner has already been registered, then he indicates the registered phone number and the animals will be recorded on the same owner (user).
 
-Works only in Google Chrome.
+Tested only on Google Chrome.
 
 Third experience in writing projects using HTML5, CSS3, JS
 
